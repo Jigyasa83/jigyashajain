@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JIGYASHA JAIN</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0e0d0d;
+            color: #333;
+        }
+    
+  nav ul {
+      display: flex;
+      justify-content: flex-end; /* Aligns items to the right */
+      margin:0;
+      padding:0px;
+      background-color: #0f0d0d; /* Background color for the nav bar */
+      height:100px;
+      font-weight:bold;
+      font-size:18px;
+  }
+  
+  nav ul li {
+      margin: 0 15px; /* Adds space between the items */
+  }
+  
+  nav ul li a {
+      text-decoration: none;
+      color: white; /* Text color */
+      padding: 14px 20px; /* Padding for clickable area */
+      display: block;
+  }
+  
+  nav ul li a:hover {
+      background-color: #575757; /* Hover effect */
+      border-radius: 4px; /* Rounded corners on hover */
+  }
+        .hero {
+            height: 30vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .about-section, .education-section, .contact-section {
+            padding: 50px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 30px auto;
+            max-width: 800px;
+            border-radius: 10px;
+        }
+        .about-section h2, .education-section h2, .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .about-section p, .education-section p, .contact-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .about-section img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        #typing-animation {
+            position: relative;
+            font-size: 30px;
+            font-weight: bold;
+            color: #fff;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3s steps(20, end) infinite;
+        }
+        #typing-animation:before {
+            content: "";
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #ccc;
+            animation: typing-cursor 0.5s ease-in-out infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes typing-cursor {
+            from { width: 5px; }
+            to { width: 0; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+	<ul>
+		<li><a href="#home">Home</a></li>
+		<li><a href="#about-me">About</a></li>
+		<li><a href="#skills">Skills</a></li>
+		<li><a href="#contact">Contact</a></li>
+	</ul>
+</nav>
+      <section id="home-section" class="hero">
+        <div>
+            <h1>I'm JIGYASHA JAIN</h1>
+            <span id="typing-animation"></span>
+        </div>
+    </section>
+    <section id="about-section" class="about-section">
+         <h2>About Me</h2>
+        <p>Hello! I'm Jigyasha Jain, a passionate tech enthusiast currently pursuing B.Tech in Computer Science and Engineering from Acropolis Institute of Technology and Research. I have a keen interest in exploring new technologies and have gained skills in Java and web development. I am excited to showcase my projects and experiences through this portfolio.</p>
+        <p>In my free time, I enjoy learning about the latest trends in technology, working on personal projects, and enhancing my coding skills. I am always eager to take on new challenges and collaborate with like-minded individuals.</p>
+    </section>
+    <section id="education-section" class="education-section">
+        <h2>Education</h2>
+        <p>B.Tech in Computer Science and Engineering, Acropolis Institute of Technology and Research</p>
+        <p>Skills: C++, Web Development</p>
+    </section>
+    <section id="contact-section" class="contact-section">
+        <h2>Contact</h2>
+        <p>Email: jigyasha.jain@example.com</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/jigyasha-jain-a392b5329" target="_blank">linkedin.com/in/jigyasha-jain</a></p>
+    </section>
+    <script>
+        // Initialize the typing animation
+        const typingAnimationElement = document.getElementById('typing-animation');
+        const typingTexts = [' Computer Science Student ', ' Tech Enthusiast ', ' Web Developer '];
+        let typingIndex = 0;
+        let charIndex = 0;
+        let currentText = '';
+        let isDeleting = false;
+
+        function type() {
+            if (isDeleting) {
+                currentText = typingTexts[typingIndex].substring(0, charIndex--);
+            } else {
+                currentText = typingTexts[typingIndex].substring(0, charIndex++);
+            }
+
+            typingAnimationElement.textContent = currentText;
+
+            if (!isDeleting && charIndex === typingTexts[typingIndex].length) {
+                isDeleting = true;
+                setTimeout(type, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                typingIndex = (typingIndex + 1) % typingTexts.length;
+                setTimeout(type, 500);
+            } else {
+                setTimeout(type, isDeleting ? 50 : 100);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', type);
+    </script>
+</body>
+</html>
